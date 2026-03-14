@@ -5,23 +5,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* shadcn tokens */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -34,19 +22,24 @@
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* SmartFlow brand colors — used as bg-sf-teal, text-sf-purple etc */
+  --color-sf-night:      #0B1B14;
+  --color-sf-surface:    #111F18;
+  --color-sf-elevated:   #162820;
+  --color-sf-teal:       #1D9E75;
+  --color-sf-teal-light: #5DCAA5;
+  --color-sf-amber:      #EF9F27;
+  --color-sf-coral:      #D85A30;
+  --color-sf-purple:     #7F77DD;
 }
 
+/* Light mode vars (shadcn default — not really used, site is dark) */
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -66,54 +59,34 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Additional HSL-style tokens used by some components (AnimatedTestimonials, etc.) */
+  --foreground: 150 20% 92%;       /* near-white text */
+  --secondary: 160 20% 12%;        /* dark teal surface for button bg */
+  --muted-foreground: 150 10% 55%; /* muted text for testimonial quotes */
 }
 
+/* Dark mode — SmartFlow always runs dark */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: oklch(0.12 0.02 160);   /* #0B1B14 equivalent in oklch */
+  --foreground: oklch(0.92 0.02 150);   /* near-white with slight green tint */
+  --card: oklch(0.15 0.02 160);         /* #111F18 */
+  --card-foreground: oklch(0.92 0.02 150);
+  --popover: oklch(0.15 0.02 160);
+  --popover-foreground: oklch(0.92 0.02 150);
+  --primary: oklch(0.58 0.14 160);      /* #1D9E75 teal */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.18 0.02 160);    /* #162820 */
+  --secondary-foreground: oklch(0.80 0.02 150);
+  --muted: oklch(0.20 0.02 160);
+  --muted-foreground: oklch(0.55 0.02 150);
+  --accent: oklch(0.60 0.12 280);       /* #7F77DD purple */
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.60 0.18 25);   /* #D85A30 coral */
+  --border: oklch(0.25 0.03 160);
+  --input: oklch(0.22 0.03 160);
+  --ring: oklch(0.58 0.14 160);
 }
 
 @layer base {
@@ -122,8 +95,25 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-color: #0B1B14;
   }
   html {
     @apply font-sans;
   }
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: #0B1B14; }
+::-webkit-scrollbar-thumb { background: #1D9E75; border-radius: 3px; }
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient var(--animation-duration, 8s) linear infinite;
+  background-size: 300% 100%;
 }
