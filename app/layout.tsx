@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   title: "SmartFlow — Urban Mobility Intelligence",
   description:
     "City-scale mobility analytics platform for transport optimisation, accessibility planning and congestion management",
+  icons: {
+    icon: "/file111.svg",
+    apple: "/file111.svg",
+  },
 };
 
 export default function RootLayout({
