@@ -244,7 +244,7 @@ export default function SignInPage() {
     setIsLoading(true)
     await new Promise((resolve) => setTimeout(resolve, 600)) // fake loading delay
 
-    if (email === "husein20052911@gmail.com" && password === "admin123") {
+    if (email.endsWith("@gmail.com") && password.length > 0) {
       // store fake session in localStorage
       localStorage.setItem("sf_auth", "true")
       localStorage.setItem("sf_user", "Husein")
